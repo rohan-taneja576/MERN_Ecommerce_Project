@@ -8,6 +8,7 @@ const PORT = process.env.PORT;
 //routes
 const authRoutes = require('./routes/auth');
 const adminRoutes = require('./routes/admin/auth');
+const categoryRoutes = require('./routes/category');
 
 mongoose
   .connect(
@@ -22,10 +23,10 @@ mongoose
     console.log('DataBase Connected');
   });
 
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser());
+app.use(express.json());
 app.use('/api', authRoutes);
 app.use('/api', adminRoutes);
+app.use('/api', categoryRoutes);
 
 app.listen(PORT, () => {
   console.log(`server started on port ${PORT}`);
