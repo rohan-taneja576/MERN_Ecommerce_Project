@@ -12,6 +12,7 @@ const categorySchema = new moongoose.Schema(
       required: true,
       unique: true,
     },
+    categoryImage: { type: String },
     parentID: {
       type: String,
     },
