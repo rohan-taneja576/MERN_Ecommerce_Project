@@ -5,6 +5,7 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const PORT = process.env.PORT;
 const path = require('path');
+const cors = require('cors');
 
 console.log(PORT);
 
@@ -28,6 +29,7 @@ mongoose
     console.log('DataBase Connected');
   });
 
+app.use(cors());
 app.use(express.json());
 app.use('/public', express.static(path.join(__dirname, 'uploads')));
 app.use('/api', authRoutes);
